@@ -4,8 +4,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview --port 4173"
+    "preview": "vite preview --port 4173",
+    "format": "npm run --prefix node_modules/@7span/prettier-config 7span-prettier-format"
   },
+  "prettier": "@7span/prettier-config",
   "dependencies": {
     "floating-vue": "^1.0.0-beta.18",
     "vue": "^2.7.7",
@@ -16,6 +18,7 @@
     "@vitejs/plugin-vue2": "^1.1.2",
     "autoprefixer": "^10.4.12",
     "postcss": "^8.4.18",
+    "prettier": "^2.8.4",
     "tailwindcss": "^3.2.0",
     "terser": "^5.14.2",
     "vite": "^3.0.2"

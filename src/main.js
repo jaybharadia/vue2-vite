@@ -12,4 +12,5 @@ new Vue({
 }).$mount("#app");
 
 import staticUrl from "./assets/logo.svg?raw";
+
 console.log("fileUrl", staticUrl);

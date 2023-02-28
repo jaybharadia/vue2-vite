@@ -8,7 +8,8 @@ import Options from "../components/Options.vue";
 Vue.use(VueRouter);
 
 function removeQueryParams(to) {
-  if (Object.keys(to.query).length) return { path: to.path, query: {}, hash: to.hash };
+  if (Object.keys(to.query).length)
+    return { path: to.path, query: {}, hash: to.hash };
 }
 
 function removeHash(to) {

@@ -73,7 +73,7 @@ export default {
 
   methods: {
     userRoutePushed(route) {
-      console.log("route visited user ", route);
+      console.log("route visited user", route);
     },
     goToCompany() {
       this.$router

@@ -1,7 +1,11 @@
 <template>
   <div>
     User Details {{ $route.params.id }}
-    <button @click="$router.replace({ name: 'user-details', params: { id: 360 } })">Update USer</button>
+    <button
+      @click="$router.replace({ name: 'user-details', params: { id: 360 } })"
+    >
+      Update USer
+    </button>
   </div>
 </template>
 
