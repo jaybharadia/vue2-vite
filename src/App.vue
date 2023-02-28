@@ -75,6 +75,9 @@ export default {
     userRoutePushed(route) {
       console.log("route visited user", route);
     },
+    checkGitPrecommit() {
+      console.log("inside check pre git commit ");
+    },
     goToCompany() {
       this.$router
         .push({
