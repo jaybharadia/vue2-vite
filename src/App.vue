@@ -76,7 +76,7 @@ export default {
       console.log("route visited user", route);
     },
     checkGitPrecommit() {
-      console.log("inside check pre git commit ");
+      console.log("inside check pre git commit again checking... ");
     },
     goToCompany() {
       this.$router
