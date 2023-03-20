@@ -14,9 +14,9 @@
 
       <RouterView name="sidebar" />
 
-      <!-- <transition name="fade" mode="out-in" @after-leave="afterLeave">
+      <transition name="fade" mode="out-in" @after-leave="afterLeave">
         <RouterView />
-      </transition> -->
+      </transition>
 
       <ProductComponent>
         <template #title="{ book }">
@@ -26,6 +26,8 @@
           >
         </template>
       </ProductComponent>
+
+      <button @click="$router.push({ name : 'foo', params : { mobileNumber : '2202020220'}})"> FOO </button> 
 
       <!-- <RouterView name="options" /> -->
 

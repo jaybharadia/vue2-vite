@@ -90,6 +90,8 @@ const router = new VueRouter({
     },
     {
       path: "/foo",
+      name : 'foo',
+      props: true,
       component: () => import("../views/Foo.vue"),
     },
     {

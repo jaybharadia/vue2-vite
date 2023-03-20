@@ -1,9 +1,14 @@
 <template>
-  <div class="foo">foo</div>
+  <div class="foo">
+Route params 
+    {{ $route.params  }}
+    </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props:['mobileNumber'],
+};
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>
