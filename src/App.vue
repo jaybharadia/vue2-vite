@@ -12,6 +12,8 @@
 
       <!-- <button class="button" @click="$router.push({ name: 'buyer-type', query: { id: 202 } })" style="display: block">Go to Buyer Type page</button> -->
 
+
+      <otp-input/>
       <RouterView name="sidebar" />
 
       <!-- <transition name="fade" mode="out-in" @after-leave="afterLeave">
@@ -36,6 +38,7 @@
 
 <script>
 // import { VueRecaptcha } from "vue-recaptcha";
+
 export default {
   components: {
     ProductComponent: () => import("@/components/Product.vue"),
