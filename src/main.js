@@ -5,7 +5,9 @@ import router from "./router";
 
 import "./plugins";
 import "./assets/main.css";
+import VueDemiDemo from "vue-demi-demo";
 
+Vue.use(VueDemiDemo);
 new Vue({
   router,
   render: (h) => h(App),
