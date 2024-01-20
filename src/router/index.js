@@ -4,15 +4,16 @@ import HomeView from "../views/HomeView.vue";
 
 import Sidebar from "../components/Sidebar.vue";
 import Options from "../components/Options.vue";
-
+import Testing from "../components/Testing.vue";
 Vue.use(VueRouter);
 
 function removeQueryParams(to) {
-  if (Object.keys(to.query).length) return { path: to.path, query: {}, hash: to.hash };
+    if (Object.keys(to.query).length)
+        return { path: to.path, query: {}, hash: to.hash };
 }
 
 function removeHash(to) {
-  if (to.hash) return { path: to.path, query: to.query, hash: "" };
+    if (to.hash) return { path: to.path, query: to.query, hash: "" };
 }
 
 // const scrollBehavior = function (to, from, savedPosition) {
@@ -62,80 +63,88 @@ function removeHash(to) {
 // };
 
 const scrollBehavior = function (to, from) {
-  return {
-    x: 0,
-    y: 600,
-    behaviour: "smooth",
-  };
+    return {
+        x: 0,
+        y: 600,
+        behaviour: "smooth",
+    };
 };
 
 const router = new VueRouter({
-  mode: "history",
-  base: import.meta.env.BASE_URL,
-  scrollBehavior,
-  routes: [
-    {
-      path: "/",
-      name: "home",
-      // component: HomeView,
-      meta: {
-        scrollToTop: true,
-      },
-      components: {
-        default: HomeView,
-        sidebar: Sidebar,
-        options: Options,
-      },
-    },
-    {
-      path: "/foo",
-      component: () => import("../views/Foo.vue"),
-    },
-    {
-      path: "/bar",
-      component: () => import("../views/Bar.vue"),
-      // meta: {
-      //   scrollToTop: true,
-      // },
-    },
-    {
-      path: "/about",
-      name: "about",
-      // redirect: { path: "customer" },
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import("../views/about/AboutView.vue"),
-      children: [
+    mode: "history",
+    base: import.meta.env.BASE_URL,
+    scrollBehavior,
+    routes: [
         {
-          props: (route) => ({
-            query: route.query,
-          }),
-          path: "company",
-          component: () => import("../views/about/Child.vue"),
+            path: "/",
+            name: "home",
+            // component: HomeView,
+            meta: {
+                scrollToTop: true,
+            },
+            components: {
+                default: HomeView,
+                sidebar: Sidebar,
+                options: Options,
+            },
         },
-      ],
-    },
-    {
-      path: "/users/:id(\\d+)",
-      name: "user-details",
-      component: () => import("../components/Details.vue"),
-    },
-    {
-      path: "/product/(books/)?:id",
-      component: () => import("../components/Product.vue"),
-    },
-    {
-      path: "*",
-      component: () => import("../components/404.vue"),
-    },
-    {
-      path: "/buyer-type",
-      name: "buyer-type",
-      component: () => import("../components/BuyerType.vue"),
-      alias: ["/membership", "premium"],
-    },
-  ],
+        {
+            path: "/user/:user",
+            name: "user-upsert",
+            component: () => import("../components/Testing.vue"),
+            props: (route) => ({
+                user: route.params.user,
+            }),
+        },
+        {
+            path: "/foo",
+            component: () => import("../views/Foo.vue"),
+        },
+        {
+            path: "/bar",
+            component: () => import("../views/Bar.vue"),
+            // meta: {
+            //   scrollToTop: true,
+            // },
+        },
+        {
+            path: "/about",
+            name: "about",
+            // redirect: { path: "customer" },
+            // route level code-splitting
+            // this generates a separate chunk (About.[hash].js) for this route
+            // which is lazy-loaded when the route is visited.
+            component: () => import("../views/about/AboutView.vue"),
+            children: [
+                {
+                    props: (route) => ({
+                        query: route.query,
+                    }),
+                    path: "company",
+                    component: () => import("../views/about/Child.vue"),
+                },
+            ],
+        },
+        {
+            path: "/users/:id(\\d+)",
+            name: "user-details",
+            component: () => import("../components/Details.vue"),
+        },
+        {
+            path: "/product/(books/)?:id",
+            component: () => import("../components/Product.vue"),
+        },
+        {
+            path: "*",
+            component: () => import("../components/404.vue"),
+        },
+        {
+            path: "/buyer-type",
+            name: "buyer-type",
+            component: () => import("../components/BuyerType.vue"),
+            alias: ["/membership", "premium"],
+        },
+    ],
 });
 
 // router.beforeEach((to, from, next) => {
